@@ -1,18 +1,16 @@
-import { View, Text } from 'react-native'
+
 import React from 'react'
-import Home from './app/container/Home'
+import { NavigationContainer } from '@react-navigation/native';
+import { BottomNavigation } from './app/container/BottomNavigation';
+
 
 export default function App() {
   return (
-    <>
-      <Home />
-    </>
+    <NavigationContainer>
+      <BottomNavigation />
+    </NavigationContainer>
+    
   )
-}
-
-export const colors={
-  primary:"red",
-  secondory:"yellow"
 }
 
 

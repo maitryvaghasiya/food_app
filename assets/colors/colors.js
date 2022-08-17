@@ -1,4 +1,6 @@
 export const colors={
-    primary : "red",
-    secondary : "yelllow"
+    primary : "#32B768",
+    secondaryhead : "#1F2937",
+    secondarytext:"#6B7280",
+
 }
