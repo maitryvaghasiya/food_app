@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, StyleSheet, TextInput, TouchableOpacity, FlatList, Image } from 'react-native'
+import { View, Text, ScrollView, StyleSheet, TextInput, TouchableOpacity, FlatList, Image, ImageBackground } from 'react-native'
 import React from 'react'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import Entypo from 'react-native-vector-icons/Entypo'
@@ -81,7 +81,15 @@ export default function PizzaD() {
                     <View >
                         <Image source={item.image} style={styles.foodimg}></Image>
                     </View>
-                    <View style={{ flexDirection: "row", marginRight: 10, marginLeft: 10 }}  >
+                    <View style={{ position: 'relative', alignItems: "center", justifyContent: "center", alignSelf: "center" }}>
+                        <ImageBackground style={styles.veg}>
+                        </ImageBackground>
+                        <View style={styles.vegText}>
+                            <Entypo name={'leaf'} style={{ marginRight: 5, fontSize: 16, }} />
+                            <Text style={{ textAlign: "center", fontWeight: "700" }}>PURE VEG RESTAURANT</Text>
+                        </View>
+                    </View>
+                    <View style={{ flexDirection: "row", marginRight: 10, marginLeft: 10, justifyContent: "space-between" }}  >
                         <View>
                             <Text style={styles.Hname}>{item.hotelName}</Text>
                             <Text style={styles.foodtype}>{item.hotelItem}</Text>
@@ -122,19 +130,6 @@ export default function PizzaD() {
                     </View>
                 </View>
 
-                <View style={styles.pizzaD}>
-                    <TouchableOpacity>
-                    <View style={styles.pizzaresto}>
-                        <Text style={{ color: "white", fontWeight: "600" }}>Restaurant</Text>
-                    </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                    <View style={styles.pizzadish}>
-                        <Text style={{ color: colors.primary, fontWeight: "600" }}>Dishes</Text>
-                    </View>
-                    </TouchableOpacity>
-                </View>
-
                 <View style={styles.heading}>
                     <View>
                         <Text style={styles.listhead}>All Restaurant Delivering Pizza</Text>
@@ -151,6 +146,14 @@ export default function PizzaD() {
                     >
                     </FlatList>
                 </View>
+                <View >
+                    <TouchableOpacity style={styles.all}>
+                        <View style={styles.seemore}>
+                            <Text style={{ color: colors.secondarytext }}>See More</Text>
+                            <Entypo name={'chevron-thin-down'} style={styles.arrow1} />
+                        </View>
+                    </TouchableOpacity>
+                </View>
 
             </View>
 
@@ -161,7 +164,7 @@ export default function PizzaD() {
 let styles = StyleSheet.create({
     screen: {
         flex: 1,
-        backgroundColor: "#ffffff"
+        backgroundColor: "#F4F6F7"
     },
     container: {
         margin: 18,
@@ -186,7 +189,6 @@ let styles = StyleSheet.create({
         marginTop: 10,
         marginBottom: 10,
         marginLeft: 20
-
     },
     pizzaT: {
         color: colors.secondaryhead,
@@ -206,28 +208,6 @@ let styles = StyleSheet.create({
         right: -225
 
     },
-    pizzaD: {
-        flexDirection: "row",
-
-
-    },
-    pizzaresto: {
-        color: "white",
-        backgroundColor: colors.primary,
-        padding: 8,
-        borderRadius: 15,
-        marginRight: 10,
-        marginTop: 15
-    },
-    pizzadish: {
-        color: colors.primary,
-        backgroundColor: "#E6E7E9",
-        padding: 8,
-        borderRadius: 15,
-        marginRight: 10,
-        marginTop: 15,
-
-    },
     heading: {
         flexDirection: "row",
         justifyContent: 'space-between',
@@ -239,19 +219,85 @@ let styles = StyleSheet.create({
         fontWeight: "700"
 
     },
-    card: {
-        // display:"flex",
+    foodhotel: {
+        height: 340,
+        width: "100%",
+        borderWidth: 1,
+        borderRadius: 20,
+        borderColor: "grey",
+        marginTop: 20,
+        backgroundColor: "#fff"
+
+    },
+    foodimg: {
+        height: 250,
+        width: "100%",
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        marginBottom: 20
+    },
+    Hname: {
+        color: colors.secondaryhead,
+        fontWeight: "500",
+        fontSize: 18
+    },
+    foodtype: {
+        color: colors.secondarytext
+
+    },
+    rate: {
+        height: 25,
+        width: 50,
+        borderRadius: 5,
+        backgroundColor: colors.primary,
+        color: "white",
+        alignItems: "center",
+        paddingLeft: 5,
+        paddingTop: 2,
+        fontSize: 14,
+    },
+    p1: {
+        color: colors.secondarytext,
+        fontSize: 12,
+        fontWeight: "600"
+    },
+    Frate: {
         position: "relative",
-        // marginLeft:10,
-        height: 210,
-        width: 148,
-        paddingTop: 10,
-        paddingRight: 10,
-        paddingLeft: 10,
-        paddingBottom: 20,
-        marginRight: 12
-      },
-      seemore: {
+        alignSelf: "flex-end"
+    },
+    star: {
+        color: "white",
+        fontSize: 13,
+        position: "absolute",
+        top: 5,
+        left: 25,
+        marginLeft: 4
+    },
+    veg: {
+        backgroundColor: colors.primary,
+        height: 25,
+        width: "100%",
+        opacity: 0.8,
+        position: "absolute",
+        top: -270,
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+    },
+    vegText: {
+        flexDirection: "row",
+        textAlign: "center",
+        position: "absolute",
+        top: -270,
+        alignItems: "center",
+        marginTop: 2
+
+    },
+    all: {
+        flexDirection: "row",
+        // marginTop:10
+
+    },
+    seemore: {
         color: colors.secondarytext,
         marginTop: 8,
         marginRight: 3,
@@ -264,130 +310,12 @@ let styles = StyleSheet.create({
         alignItems: "center",
         flexDirection: "row",
         borderRadius: 10
-    
-      },
-      arrow1: {
+    },
+    arrow1: {
         color: colors.secondarytext,
         marginTop: 5,
         fontSize: 12,
         marginLeft: 5
-      },
-      imgOfFood: {
-        marginTop: 16,
-        height: 104,
-        width: 130,
-        marginBottom: 16
-      },
-      iconlocationfood: {
-        fontSize: 15,
-        color: colors.primary,
-      },
-      add: {
-        flexDirection: "row"
-    
-      },
-      iconloc: {
-        color: colors.primary,
-        fontSize: 15,
-        marginTop: 2,
-        paddingLeft: 0
-    
-      },
-      foodname: {
-        color: colors.secondaryhead,
-        fontSize: 16,
-        fontWeight: "600"
-    
-      },
-      foodresto: {
-        color: colors.secondarytext,
-        fontSize: 12
-      },
-      iconlocationhotel: {
-        fontSize: 20,
-        color: colors.primary,
-        marginTop: 7
-      },
-      address: {
-        color: colors.secondarytext,
-        fontSize: 12
-      },
-      btn: {
-        backgroundColor: colors.primary,
-        height: 28,
-        width: 88,
-        borderRadius: 10,
-        justifyContent: 'center',
-        // alignSelf:"flex-end"
-      },
-      btntext: {
-        fontSize: 12,
-        fontWeight: "700",
-        color: "white",
-        textAlign: 'center',
-      },
-      foodhotel: {
-        height: 340,
-        width: "100%",
-        borderWidth: 1,
-        borderRadius: 20,
-        borderColor: "grey",
-        marginTop: 20
-        // borderWidth:0.5,
-        // shadowColor: "red",
-        // shadowOpacity: 1,
-        // shadowRadius: 2,
-        // shadowOffset: {
-        //   height: 1,
-        //   width: 1
-        // }
-    
-      },
-      foodimg: {
-        height: 250,
-        width: "100%",
-        borderTopLeftRadius: 20,
-        borderTopRightRadius: 20,
-        marginBottom: 20
-      },
-      Hname: {
-        color: colors.secondaryhead,
-        fontWeight: "500",
-        fontSize: 18
-      },
-      foodtype: {
-        color: colors.secondarytext
-    
-      },
-      rate: {
-        height: 25,
-        width: 50,
-        borderRadius: 5,
-        backgroundColor: colors.primary,
-        color: "white",
-        // justifyContent:"center",
-        alignItems: "center",
-        paddingLeft: 5,
-        paddingTop: 2,
-        fontSize: 14,
-      },
-      p1: {
-        color: colors.secondarytext,
-      },
-      Frate: {
-        position: "relative",
-      },
-      star: {
-        color: "white",
-        fontSize: 13,
-        position: "absolute",
-        // justifyContent:"center",
-        // textAlign:"center",
-        // alignItems:"center"
-        top: 5,
-        left: 25,
-        marginLeft: 4
-    
-      }
-    
+    },
+
 })
