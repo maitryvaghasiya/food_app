@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { BottomNavigation } from './app/container/BottomNavigation';
@@ -6,40 +5,27 @@ import PizzaD from './app/container/PizzaD';
 import Home from './app/container/Home';
 import PizzaLnozz from './app/container/PizzaLnozz';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
+// import 'react-native-gesture-handler';
+import { Drawernavigation } from './app/container/Drawernavigation';
+import Onbrd from './app/container/Onbrd';
+import { Provider } from 'react-redux';
+import { configStore } from './app/redux/store';
 
 export default function App() {
+  const store = configStore()
+
   return (
-    <NavigationContainer 
-    // screenOptions={({ route }) => ({
-    //   tabBarIcon: ({ focused, color, size }) => {
-    //     let iconName;
-
-    //     if (route.name === 'Delivery') {
-    //       iconName = focused
-    //         ? 'truck-delivery'
-    //         : 'truck-delivery-outline';
-    //     } else if (route.name === 'Dining') {
-    //       iconName = focused ? 'restaurant' : 'restaurant-outline';
-    //     }
-    //     else if (route.name === 'Offers') {
-    //       iconName = focused ? 'ticket-percent' : 'ticket-percent-outline';
-    //     }else if (route.name === 'Money') {
-    //       iconName = focused ? 'file-tray-full-sharp' : 'file-tray-full-outline';
-    //     }
-
-    //     // You can return any component that you like here!
-    //     return <Ionicons name={iconName} size={size} color={color} />;
-    //   },
-    //   tabBarActiveTintColor: 'tomato',
-    //   tabBarInactiveTintColor: 'gray',
-    // })}
+    <Provider store={store}>
+      <NavigationContainer 
     >
+      {/* <Drawernavigation /> */}
       <BottomNavigation />
     </NavigationContainer>
+    </Provider>
 //  <PizzaD /> 
 //  <Home /> 
 //  <PizzaLnozz /> 
+//  <Onbrd /> 
 
     
   )

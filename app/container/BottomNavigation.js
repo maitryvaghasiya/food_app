@@ -4,6 +4,7 @@ import { Dining, FoodStack, Offers } from './StackNavigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import Counter from './Counter';
 
 
 
@@ -44,6 +45,7 @@ export const BottomNavigation = () => {
             <Tab.Screen name="Dining" component={Dining} />
             <Tab.Screen name="Offers" component={Offers} />
             <Tab.Screen name="Money" component={Dining} />
+            <Tab.Screen name="counter" component={Counter} />
 
         </Tab.Navigator>
     )

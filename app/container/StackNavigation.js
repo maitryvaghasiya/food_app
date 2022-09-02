@@ -5,20 +5,30 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './Home';
 import PizzaD from './PizzaD';
 import PizzaLnozz from './PizzaLnozz';
+import Onbrd from './Onbrd';
 
 function HomeScreen() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Home!</Text>
+        <Text>Home</Text>
       </View>
     );
   }
 
 const Stack = createNativeStackNavigator();
 
+const Onboarding = () => {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name="onboard" component={Onbrd} />
+            {/* <Stack.Screen name="PizzaD" component={PizzaD} /> */}
+        </Stack.Navigator>
+    )
+}
+
 const FoodStack = () => {
     return (
-        <Stack.Navigator screenOptions={{headerShown:false}}>
+        <Stack.Navigator>
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="PizzaD" component={PizzaD} />
         </Stack.Navigator>
@@ -46,4 +56,4 @@ const Money = () => {
         </Stack.Navigator>
     )
 }
-export { FoodStack, Dining, Offers, Money}
+export { FoodStack, Dining, Offers, Money,Onboarding}

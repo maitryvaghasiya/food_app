@@ -5,6 +5,9 @@ import Feather from 'react-native-vector-icons/Feather';
 import Entypo from 'react-native-vector-icons/Entypo';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
+// import PizzaD from './PizzaD';
+// import PizzaLnozz from './PizzaLnozz';
+
 
 
 export default function Home({ navigation }) {
