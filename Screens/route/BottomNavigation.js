@@ -1,12 +1,11 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Dining, FoodStack, Offers } from './StackNavigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import Counter from './Counter';
-
-
+import Counter from '../container/Counter';
+import Post from '../container/Post';
+import { Dining, FoodStack, Offers } from './StackNavigation';
 
 const Tab = createBottomTabNavigator();
 
@@ -46,6 +45,7 @@ export const BottomNavigation = () => {
             <Tab.Screen name="Offers" component={Offers} />
             <Tab.Screen name="Money" component={Dining} />
             <Tab.Screen name="counter" component={Counter} />
+            <Tab.Screen name="post" component={Post} />
 
         </Tab.Navigator>
     )

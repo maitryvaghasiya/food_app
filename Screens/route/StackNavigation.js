@@ -1,10 +1,10 @@
 
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Home from './Home';
-import PizzaD from './PizzaD';
-import PizzaLnozz from './PizzaLnozz';
-import Onbrd from './Onbrd';
+import Onbrd from '../container/Onbrd';
+import Home from '../container/Home';
+import PizzaD from '../container/PizzaD';
+import PizzaLnozz from '../container/PizzaD';
 
 function HomeScreen() {
     return (

@@ -18,9 +18,9 @@ export default function Counter() {
         dispatch(decrementCounter())
     }
 
-    useEffect(() => {
-        dispatch(getCategory())
-    },[])
+    // useEffect(() => {
+    //     dispatch(getCategory())
+    // },[])
 
     return(
         <View>
@@ -33,9 +33,6 @@ export default function Counter() {
             <TouchableOpacity onPress={() => handleDecrement()}>
                 <Text style={{color:"black", margin:30,fontSize:20}}>-</Text>
             </TouchableOpacity>
-            {
-                
-            }
         </View>
     )
 }

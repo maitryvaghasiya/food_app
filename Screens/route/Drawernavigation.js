@@ -1,7 +1,7 @@
 import React from "react";
 // import { createDrawerNavigator } from '@react-navigation/drawer';
-import PizzaD from "./PizzaD";
-import PizzaLnozz from "./PizzaLnozz";
+import PizzaD from "../container/PizzaD";
+import PizzaLnozz from "../container/PizzaLnozz";
 // import { BottomNavigation } from "./BottomNavigation";
 
 

@@ -7,7 +7,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import { colors } from '../../assets/colors/colors'
 
 
-export default function PizzaLnozz() {
+export default function PizzaLnozz() {  
 
     const hotel = [
         {
