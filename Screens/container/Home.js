@@ -95,33 +95,28 @@ export default function Home({ navigation }) {
   const Food = [
     {
       id: 1,
-      image: require("../../assets/image/chikenbiri.jpg"),
-      name: "Chicken Biriyani",
-      location: "Ambrosia Hotel & Restaurant"
+      image: require("../../assets/image/p1.jpeg"),
+      name: "Las Vegas Pizza",
     },
     {
       id: 2,
-      image: require("../../assets/image/samosa-chaat.jpg"),
-      name: "Samosa Chaat",
-      location: "Handi Restaurant Chittagong"
+      image: require("../../assets/image/p5.jpeg"),
+      name: "Farm Villa Pizza",
     },
     {
       id: 3,
-      image: require("../../assets/image/Dal-Makhani-N.jpg"),
-      name: "Daal Makhani",
-      location: "Ambrosia Hotel & Restaurant"
+      image: require("../../assets/image/p4.jpeg"),
+      name: "Cheesy 7 Pizza",
     },
     {
       id: 4,
-      image: require("../../assets/image/Veg-Bir1.jpg"),
-      name: "Veg Biriyani",
-      location: "Ambrosia Hotel & Restaurant"
+      image: require("../../assets/image/p3.jpeg"),
+      name: "Hot Passion Pizza",
     },
     {
       id: 5,
-      image: require("../../assets/image/daal.jpg"),
-      name: "Daal Fry",
-      location: "Ambrosia Hotel & Restaurant"
+      image: require("../../assets/image/p2.jpeg"),
+      name: "Paneer Tikka Pizza"
     },
   ]
 
