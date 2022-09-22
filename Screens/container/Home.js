@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, StyleSheet, Image, TextInput, FlatList, TouchableOpacity } from 'react-native'
+import { View, Text, ScrollView, StyleSheet, Image, TextInput, FlatList, TouchableOpacity, ImageBackground } from 'react-native'
 import React from 'react'
 import { colors } from '../../assets/colors/colors'
 import Feather from 'react-native-vector-icons/Feather';
@@ -6,8 +6,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
-
-export default function Home({navigation}) {
+export default function Home({ navigation }) {
 
   const Slider = [
     {
@@ -39,91 +38,51 @@ export default function Home({navigation}) {
   const Menu = [
     {
       id: 1,
-      image: require("../../assets/image/healthy.jpg"),
-      name: "Healthy"
-    },
-    {
-      id: 2,
       image: require("../../assets/image/pizza.jpg"),
       name: "Pizzas"
     },
     {
-      id: 3,
+      id: 2,
       image: require("../../assets/image/chaat.jpg"),
       name: "Chaat"
     },
     {
-      id: 4,
-      image: require("../../assets/image/thaali.jpg"),
-      name: "Thali"
-    },
-    {
-      id: 5,
-      image: require("../../assets/image/samosa.webp"),
-      name: "Samosa"
-    },
-    {
-      id: 6,
+      id: 3,
       image: require("../../assets/image/sand.jpg"),
       name: "Sandwich"
     },
     {
-      id: 7,
-      image: require("../../assets/image/homestyle.jpg"),
-      name: "Home Style"
-    },
-    {
-      id: 8,
+      id: 4,
       image: require("../../assets/image/burger.webp"),
       name: "Burger"
     },
     {
-      id: 9,
-      image: require("../../assets/image/chhole.webp"),
-      name: "Chole Bhature"
-    },
-    {
-      id: 10,
+      id: 5,
       image: require("../../assets/image/shake.webp"),
       name: "Shake"
     },
     {
-      id: 11,
-      image: require("../../assets/image/biriyani.png"),
-      name: "Biriyani"
-    },
-    {
-      id: 12,
-      image: require("../../assets/image/roll.jpg"),
-      name: "Rolls"
-    },
-    {
-      id: 13,
+      id: 6,
       image: require("../../assets/image/panir.webp"),
       name: "Paneer"
     },
     {
-      id: 14,
+      id: 7,
       image: require("../../assets/image/fries.jpg"),
       name: "Fries"
     },
     {
-      id: 15,
+      id: 8,
       image: require("../../assets/image/pasta.jpg"),
       name: "Pasta"
     },
-    {
-      id: 16,
-      image: require("../../assets/image/dal.jpg"),
-      name: "Daal"
-    }
 
   ]
 
   const MenuData = ({ item }) => {
     return (
       <View style={styles.Fmenu}>
-        <TouchableOpacity onPress={()=>navigation.navigate("PizzaD")}>
+        <TouchableOpacity onPress={() => navigation.navigate("PizzaD")}>
           <View style={styles.menucard}>
             <Image source={item.image} style={styles.imgOfmenuFood}></Image>
             <Text style={styles.Fname}>{item.name}</Text>
@@ -136,33 +95,28 @@ export default function Home({navigation}) {
   const Food = [
     {
       id: 1,
-      image: require("../../assets/image/biriyani.png"),
-      name: "Chicken Biriyani",
-      location: "Ambrosia Hotel & Restaurant"
+      image: require("../../assets/image/p1.jpeg"),
+      name: "Las Vegas Pizza",
     },
     {
       id: 2,
-      image: require("../../assets/image/egg.png"),
-      name: "Souce Tonkansu",
-      location: "Handi Restaurant Chittagong"
+      image: require("../../assets/image/p5.jpeg"),
+      name: "Farm Villa Pizza",
     },
     {
       id: 3,
-      image: require("../../assets/image/daal1.png"),
-      name: "Daal Makhani",
-      location: "Ambrosia Hotel & Restaurant"
+      image: require("../../assets/image/p4.jpeg"),
+      name: "Cheesy 7 Pizza",
     },
     {
       id: 4,
-      image: require("../../assets/image/biriyani.png"),
-      name: "Veg Biriyani",
-      location: "Ambrosia Hotel & Restaurant"
+      image: require("../../assets/image/p3.jpeg"),
+      name: "Hot Passion Pizza",
     },
     {
       id: 5,
-      image: require("../../assets/image/daal1.png"),
-      name: "Daal Fry",
-      location: "Ambrosia Hotel & Restaurant"
+      image: require("../../assets/image/p2.jpeg"),
+      name: "Paneer Tikka Pizza"
     },
   ]
 
@@ -170,12 +124,12 @@ export default function Home({navigation}) {
     return (
       <View style={styles.card} >
         <TouchableOpacity>
-          <View>
-            <View>
+          <View >
+            <View >
               <Image source={item.image} style={styles.imgOfFood}></Image>
             </View>
 
-            <View>
+            <View style={{ paddingLeft: 5 }}>
               <Text style={styles.foodname}>{item.name}</Text>
               <View style={styles.add}>
                 <Entypo name={'location-pin'} style={styles.iconloc} />
@@ -246,35 +200,21 @@ export default function Home({navigation}) {
   const HotelData = ({ item }) => {
 
     return (
-      // <TouchableOpacity>
-      //   <View style={{marginTop:20,paddingLeft:12,paddingRight:12,flexDirection:"row",height:88,width:340}}>
-      //     <View >
-      //       <Image source={item.image} style={styles.imgOfhotel}></Image>
-      //     </View>
-      //     <View style={{marginLeft:17,}}>
-      //       <Text style={styles.foodname}>{item.hotelName}</Text>
-      //       <View style={{flexDirection:"row",marginTop:3,}}>
-      //       <Entypo name={'location-pin'} style={styles.iconlocationhotel} />
-      //       <View style={{marginLeft:5}}>
-      //       <Text style={styles.address}>{item.location}</Text>
-      //       <Text style={styles.address}>{item.area}</Text>
-      //       </View>
-      //       <View>
-      //       <TouchableOpacity style={styles.btn}>
-      //         <Text style={styles.btntext}>Book</Text>
-      //       </TouchableOpacity>
-      //       </View>
-      //       </View>
-      //     </View>
-      //   </View>
-      // </TouchableOpacity>
 
       <TouchableOpacity>
         <View style={styles.foodhotel}>
           <View >
             <Image source={item.image} style={styles.foodimg}></Image>
           </View>
-          <View style={{ flexDirection: "row", marginRight: 10, marginLeft: 10,justifyContent:"space-between" }}  >
+          <View style={{ position: 'relative', alignItems: "center", justifyContent: "center", alignSelf: "center" }}>
+            <ImageBackground style={styles.veg}>
+            </ImageBackground>
+            <View style={styles.vegText}>
+              <Entypo name={'leaf'} style={{ marginRight: 5, fontSize: 16, }} />
+              <Text style={{ textAlign: "center", fontWeight: "700" }}>PURE VEG RESTAURANT</Text>
+            </View>
+          </View>
+          <View style={{ flexDirection: "row", marginRight: 10, marginLeft: 10, justifyContent: "space-between" }}  >
             <View>
               <Text style={styles.Hname}>{item.hotelName}</Text>
               <Text style={styles.foodtype}>{item.hotelItem}</Text>
@@ -424,7 +364,7 @@ export default function Home({navigation}) {
 let styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: "#ffffff"
+    backgroundColor: "#F4F6F7"
   },
   container: {
     margin: 18,
@@ -599,13 +539,12 @@ let styles = StyleSheet.create({
     // display:"flex",
     position: "relative",
     // marginLeft:10,
-    height: 210,
-    width: 148,
-    paddingTop: 10,
-    paddingRight: 10,
-    paddingLeft: 10,
-    paddingBottom: 20,
-    marginRight: 12
+    height: 220,
+    width: 150,
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    marginRight: 20,
+    marginTop: 20
   },
   seemore: {
     color: colors.secondarytext,
@@ -629,10 +568,14 @@ let styles = StyleSheet.create({
     marginLeft: 5
   },
   imgOfFood: {
-    marginTop: 16,
-    height: 104,
-    width: 130,
-    marginBottom: 16
+    // marginTop: 16,
+    height: 140,
+    width: 150,
+    marginBottom: 10,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10
+
+
   },
   iconlocationfood: {
     fontSize: 15,
@@ -685,18 +628,11 @@ let styles = StyleSheet.create({
   foodhotel: {
     height: 340,
     width: "100%",
-    borderWidth: 1,
+    borderWidth: 0,
     borderRadius: 20,
     borderColor: "grey",
-    marginTop: 20
-    // borderWidth:0.5,
-    // shadowColor: "red",
-    // shadowOpacity: 1,
-    // shadowRadius: 2,
-    // shadowOffset: {
-    //   height: 1,
-    //   width: 1
-    // }
+    marginTop: 20,
+    backgroundColor: "#fff",
 
   },
   foodimg: {
@@ -704,7 +640,12 @@ let styles = StyleSheet.create({
     width: "100%",
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    marginBottom: 20
+    marginBottom: 20,
+    shadowColor: 'red',
+    shadowOffset: { width: 5, height: 10 },
+    shadowOpacity: 1,
+    shadowRadius: 3,
+
   },
   Hname: {
     color: colors.secondaryhead,
@@ -729,24 +670,43 @@ let styles = StyleSheet.create({
   },
   p1: {
     color: colors.secondarytext,
-    fontSize:12,
-    fontWeight:"600"
+    fontSize: 12,
+    fontWeight: "600"
   },
   Frate: {
     position: "relative",
-    alignSelf:"flex-end"
-   
+    alignSelf: "flex-end"
+
   },
   star: {
     color: "white",
     fontSize: 13,
     position: "absolute",
-    // justifyContent:"center",
-    // textAlign:"center",
-    // alignItems:"center"
     top: 5,
     left: 25,
     marginLeft: 4,
+
+  },
+  veg: {
+    backgroundColor: colors.primary,
+    height: 25,
+    width: "100%",
+    opacity: 0.8,
+    position: "absolute",
+    top: -270,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+
+
+  },
+  vegText: {
+    flexDirection: "row",
+    textAlign: "center",
+    position: "absolute",
+    top: -270,
+    // justifyContent:"center",
+    alignItems: "center",
+    marginTop: 2
 
   }
 
