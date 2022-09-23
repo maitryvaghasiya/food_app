@@ -11,6 +11,7 @@ import { RadioButton } from 'react-native-paper';
 
 import { colors } from '../../assets/colors/colors'
 
+
 export default function PizzaD({ navigation }) {
 
     // const [index, setIndex] = React.useState(0);
@@ -24,49 +25,67 @@ export default function PizzaD({ navigation }) {
             id: 1,
             image: require("../../assets/image/lapinozz1.jpg"),
             hotelName: "Margerita Pizza ",
-            hotelItem: "Pizza, Fast Food, Beverages",
-            price: 300,
+            hotelItem: "Paneer, sweet Corn with Extra Cheese",
+            price: 255,
             rating: 4.9,
         },
         {
             id: 2,
             image: require("../../assets/image/dominoz1.jpg"),
-            hotelName: "Dominoz Pizza",
-            hotelItem: "Pizza, Fast Food",
-            price: 300,
+            hotelName: "Hot Passion Pizza",
+            hotelItem: "Paneer, sweet Corn, Pineapple, Olives, Cheese",
+            price: 255,
             rating: 4.8,
         },
         {
             id: 3,
-            image: require("../../assets/image/holic1.jpg"),
-            hotelName: "Pizza Holic",
-            hotelItem: "Fast Food, Mexican, Italian",
-            price: 300,
+            image: require("../../assets/image/p1.jpg"),
+            hotelName: "Burn To Hell Pizza",
+            hotelItem: "Paneer, sweet Corn, Pineapple with Extra Cheese",
+            price: 255,
             rating: 4.7,
         },
         {
             id: 4,
             image: require("../../assets/image/laziz1.webp"),
-            hotelName: "Laziz Pizza",
-            hotelItem: "Pizza, Sandwich, Burger",
-            price: 300,
+            hotelName: "Cheesy 7 Pizza",
+            hotelItem: "Paneer, & types of Cheese, Red Peprika",
+            price: 255,
             rating: 3.5,
         },
         {
             id: 5,
             image: require("../../assets/image/woklee1.jpg"),
-            hotelName: "Woklee Pizza",
-            hotelItem: "Pizza, Fast Food, Pasta",
-            price: 300,
+            hotelName: "Peri Peri Pizza",
+            hotelItem: "Paneer, sweet Corn, Olives, Tometo, Cheese",
+            price: 255,
             rating: 4.1,
 
         },
         {
             id: 6,
             image: require("../../assets/image/caprina1.webp"),
-            hotelName: "Pizza Caprina",
-            hotelItem: "Pizza, Fast Food, Pasta",
-            price: 300,
+            hotelName: "Las Vegas Pizza",
+            hotelItem: "Paneer, sweet Corn, Cheese, Olives, Capsicum",
+            price: 255,
+            rating: 4.00,
+
+        },
+        {
+            id: 7,
+            image: require("../../assets/image/woklee1.jpg"),
+            hotelName: "Farm Villa Pizza",
+            hotelItem: "Paneer, sweet Corn, Onion, Tometo, Capsicum",
+            price: 255,
+            rating: 4.00,
+
+        },
+        {
+            id: 8,
+            image: require("../../assets/image/p1.jpg"),
+            hotelName: "Veg Hawailian Pizza",
+            hotelItem: "Paneer, sweet Corn, Pineapple with Extra Cheese",
+            price: 255,
             rating: 4.00,
 
         },
@@ -110,45 +129,68 @@ export default function PizzaD({ navigation }) {
                                             <View style={styles.centeredView}>
                                                 <View style={styles.modalView}>
                                                     <Text style={styles.modalText}>Margerita pizza</Text>
+                                                    <View style={{ alignItems: "center", marginBottom: 10 }}>
+                                                        <View style={{ height: 150, width: 150, backgroundColor: "grey", borderRadius: 20 }}></View>
+                                                    </View>
+                                                    <View style={{ marginBottom: 10 }}>
+                                                        <Text style={styles.toppingText}>A Fiery And Letthal Combination of Hot and Garlic Dip, Jalapenos,,Mashrooms,Olives,Capsicum.</Text>
+                                                    </View>
 
-                                                    <View style={{ flexDirection: "row" }}>
-                                                        <Text>First</Text>
-                                                        <RadioButton
-                                                            value="first"
-                                                            status={checked === 'first' ? 'checked' : 'unchecked'}
-                                                            onPress={() => setChecked('first')}
-                                                        />
+                                                    <View style={{ marginBottom: 10 }}>
+                                                        <View style={{ flexDirection: "row" }}>
+                                                            <View style={{ width: "90%", flexDirection: "row", justifyContent: "space-between", top: 8, marginRight: 10 }}>
+                                                                <Text>Small (serves 1, 17.7 cm)</Text>
+                                                                <Text >Rs. 255</Text>
+
+                                                            </View>
+                                                            <RadioButton
+                                                                value="first"
+                                                                status={checked === 'first' ? 'checked' : 'unchecked'}
+                                                                onPress={() => setChecked('first')}
+                                                                color="#106733"
+
+                                                            />
+                                                        </View>
+                                                        <View style={{ flexDirection: "row" }}>
+                                                            <View style={{ width: "90%", flexDirection: "row", justifyContent: "space-between", top: 8, marginRight: 10 }}>
+                                                                <Text>Regular (serves 2, 24.5 cm)</Text>
+                                                                <Text >Rs. 255</Text>
+                                                            </View>
+                                                            <RadioButton
+                                                                value="second"
+                                                                status={checked === 'second' ? 'checked' : 'unchecked'}
+                                                                onPress={() => setChecked('second')}
+                                                                color="#106733"
+                                                            />
+                                                        </View>
+                                                        <View style={{ flexDirection: "row" }}>
+                                                            <View style={{ width: "90%", flexDirection: "row", justifyContent: "space-between", top: 8, marginRight: 10 }}>
+                                                                <Text>Large (serves 3, 33 cm)</Text>
+                                                                <Text >Rs. 255</Text>
+                                                            </View>
+                                                            <RadioButton
+                                                                value="third"
+                                                                status={checked === 'third' ? 'checked' : 'unchecked'}
+                                                                onPress={() => setChecked('third')}
+                                                                color="#106733"
+                                                            />
+                                                        </View>
+                                                        <View style={{ borderWidth: 0.3, borderColor: "grey" }}></View>
                                                     </View>
-                                                    <View style={{ flexDirection: "row" }}>
-                                                        <Text>First</Text>
-                                                        <RadioButton
-                                                            value="second"
-                                                            status={checked === 'second' ? 'checked' : 'unchecked'}
-                                                            onPress={() => setChecked('second')}
-                                                        />
-                                                    </View>
-                                                    <View style={{ flexDirection: "row" }}>
-                                                        <Text>First</Text>
-                                                        <RadioButton
-                                                            value="third"
-                                                            status={checked === 'third' ? 'checked' : 'unchecked'}
-                                                            onPress={() => setChecked('third')}
-                                                        />
-                                                    </View>
-                                                    <View style={{ flexDirection: "row" }}>
+                                                    <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
                                                         <Pressable
 
-                                                            style={[styles.button, styles.buttonClose]}
+                                                            style={[styles.button, styles.CbuttonClose]}
                                                             onPress={() => setModalVisible(!modalVisible)}
                                                         >
-                                                            <Text style={styles.textStyle}>Cancel</Text>
+                                                            <Text style={styles.CtextStyle}>Cancel</Text>
                                                         </Pressable>
                                                         <Pressable
 
-                                                            style={[styles.button, styles.buttonClose]}
+                                                            style={[styles.button, styles.AbuttonClose]}
                                                             onPress={() => setModalVisible(!modalVisible)}
                                                         >
-                                                            <Text style={styles.textStyle}>Add Items</Text>
+                                                            <Text style={styles.AtextStyle}>Add Items</Text>
                                                         </Pressable>
                                                     </View>
                                                 </View>
@@ -179,6 +221,7 @@ export default function PizzaD({ navigation }) {
         )
     }
     return (
+
         <ScrollView style={styles.screen}>
             <View style={styles.container}>
                 <View style={{ marginTop: 5 }}>
@@ -266,6 +309,7 @@ export default function PizzaD({ navigation }) {
                 </View>
             </View>
         </ScrollView>
+
     )
 }
 
@@ -313,7 +357,7 @@ let styles = StyleSheet.create({
     },
     foodhotel: {
         // flexDirection:"row",
-        height: 120,
+        height: 140,
         width: "100%",
         borderWidth: 1,
         borderRadius: 20,
@@ -323,8 +367,8 @@ let styles = StyleSheet.create({
 
     },
     foodimg: {
-        height: 120,
-        width: 120,
+        height: 140,
+        width: 130,
         borderTopLeftRadius: 20,
         borderBottomLeftRadius: 20,
         marginBottom: 20,
@@ -398,14 +442,16 @@ let styles = StyleSheet.create({
         flex: 1,
         justifyContent: "flex-end",
         alignItems: "center",
-        marginTop: 22
+        // marginTop: 22
     },
     modalView: {
-        margin: 100,
+        margin: 2,
         backgroundColor: "white",
-        borderRadius: 20,
-        padding: 35,
-        alignItems: "center",
+        // borderRadius: 20,
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        padding: 15,
+        // alignItems: "center",
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -414,29 +460,54 @@ let styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 4,
         elevation: 5,
-        width:"100%",
-        height:"50%",
-        justifyContent: "flex-end",
+        width: "100%",
+        // height:"50%",
+        // justifyContent: "flex-end",
+    },
+    toppingText: {
+        fontSize: 14,
+        color: colors.secondarytext
     },
     button: {
-        borderRadius: 20,
+        borderRadius: 10,
         padding: 10,
-        elevation: 2
+        elevation: 2,
     },
     buttonOpen: {
         backgroundColor: "#F194FF",
     },
-    buttonClose: {
-        backgroundColor: "#2196F3",
+    CbuttonClose: {
+        backgroundColor: "#F4F6F7",
+        color: colors.secondaryhead,
+        height: 50,
+        width: "30%",
+        justifyContent: "center",
+        borderColor: "grey",
     },
-    textStyle: {
+    AbuttonClose: {
+        backgroundColor: "#2196F3",
+        height: 50,
+        width: "67%",
+        backgroundColor: colors.primary,
+        justifyContent: "center"
+    },
+    CtextStyle: {
+        color: colors.secondarytext,
+        fontWeight: "bold",
+        textAlign: "center",
+    },
+    AtextStyle: {
         color: "white",
         fontWeight: "bold",
         textAlign: "center"
     },
     modalText: {
         marginBottom: 15,
-        textAlign: "center"
+        fontSize: 18,
+        color: colors.secondaryhead,
+        fontWeight: "600"
+        // textAlign: "center",
+
     },
     seemore: {
         color: colors.secondarytext,

@@ -1,12 +1,19 @@
-import { View, Text, ScrollView, StyleSheet, Image, TextInput, FlatList, TouchableOpacity, ImageBackground } from 'react-native'
-import React from 'react'
+import { View, Text, ScrollView, StyleSheet, Image, TextInput, FlatList, Pressable, TouchableOpacity, Modal, ImageBackground } from 'react-native'
+import React, { useState } from 'react'
 import { colors } from '../../assets/colors/colors'
 import Feather from 'react-native-vector-icons/Feather';
 import Entypo from 'react-native-vector-icons/Entypo';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import { RadioButton } from 'react-native-paper';
+
 
 export default function Home({ navigation }) {
+
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const [checked, setChecked] = React.useState('first');
+
 
   const Slider = [
     {
@@ -43,40 +50,29 @@ export default function Home({ navigation }) {
     },
     {
       id: 2,
-      image: require("../../assets/image/chaat.jpg"),
-      name: "Chaat"
+      image: require("../../assets/image/pasta.jpg"),
+      name: "Sides"
     },
     {
       id: 3,
-      image: require("../../assets/image/sand.jpg"),
-      name: "Sandwich"
+      image: require("../../assets/image/garlic.webp"),
+      name: "Garlic Bread"
     },
     {
       id: 4,
-      image: require("../../assets/image/burger.webp"),
-      name: "Burger"
+      image: require("../../assets/image/cake.webp"),
+      name: "Dessert"
     },
     {
       id: 5,
-      image: require("../../assets/image/shake.webp"),
-      name: "Shake"
+      image: require("../../assets/image/dip.webp"),
+      name: "Dips"
     },
     {
       id: 6,
-      image: require("../../assets/image/panir.webp"),
-      name: "Paneer"
+      image: require("../../assets/image/drink.jpeg"),
+      name: "Beverages"
     },
-    {
-      id: 7,
-      image: require("../../assets/image/fries.jpg"),
-      name: "Fries"
-    },
-    {
-      id: 8,
-      image: require("../../assets/image/pasta.jpg"),
-      name: "Pasta"
-    },
-
   ]
 
   const MenuData = ({ item }) => {
@@ -95,28 +91,34 @@ export default function Home({ navigation }) {
   const Food = [
     {
       id: 1,
-      image: require("../../assets/image/p1.jpeg"),
+      image: require("../../assets/image/p1.jpg"),
       name: "Las Vegas Pizza",
+      price: 255,
+
     },
     {
       id: 2,
       image: require("../../assets/image/p5.jpeg"),
       name: "Farm Villa Pizza",
+      price: 255,
     },
     {
       id: 3,
       image: require("../../assets/image/p4.jpeg"),
       name: "Cheesy 7 Pizza",
+      price: 255,
     },
     {
       id: 4,
       image: require("../../assets/image/p3.jpeg"),
       name: "Hot Passion Pizza",
+      price: 255,
     },
     {
       id: 5,
       image: require("../../assets/image/p2.jpeg"),
-      name: "Paneer Tikka Pizza"
+      name: "Paneer Tikka Pizza",
+      price: 255,
     },
   ]
 
@@ -132,9 +134,15 @@ export default function Home({ navigation }) {
             <View style={{ paddingLeft: 5 }}>
               <Text style={styles.foodname}>{item.name}</Text>
               <View style={styles.add}>
-                <Entypo name={'location-pin'} style={styles.iconloc} />
-                <Text style={styles.foodresto}>{item.location}</Text>
+                <Text style={styles.foodresto}>Rs. {item.price}</Text>
+                <TouchableOpacity
+                  // style={[styles.button, styles.buttonOpen]}
+                  style={[styles.addbtn,{top:12,marginLeft:15}]}
+                >
+                  <Text style={styles.addtext}>Add + </Text>
+                </TouchableOpacity>
               </View>
+
 
             </View>
           </View>
@@ -146,54 +154,45 @@ export default function Home({ navigation }) {
   const Hotel = [
     {
       id: 1,
-      image: require("../../assets/image/food1.jpg"),
-      hotelName: "Hotel Zaman Restaurant",
-      hotelItem: "Fast Food, Chienese, Sandwich",
-      location: "kazi Deiry, Taiger Pass",
-      area: "Chittagong",
-      rating: 5.0,
-      onePerson: "Rs.100 for one"
+      image: require("../../assets/image/p6.jpeg"),
+      hotelName: "Peri Peri Veg Pizza",
+      hotelItem: "Onion, Zapsicum, Mashroom, Paneer, Olives & Peri Peri Dip",
+      price: 255,
+      rating: 4.9,
     },
     {
       id: 2,
-      image: require("../../assets/image/food2.jpg"),
-      hotelName: "Hotel Zaman Restaurant",
-      hotelItem: "Fast Food, Chienese, Sandwich, Thai Food",
-      location: "kazi Deiry, Taiger Pass",
-      area: "Chittagong",
+      image: require("../../assets/image/cake.webp"),
+      hotelName: "Choco Lava",
+      hotelItem: "Loaded With premium Chocolate with Cream",
+      price: 200,
       rating: 4.8,
-      onePerson: "Rs.200 for one"
+
     },
     {
       id: 3,
-      image: require("../../assets/image/food3.jpg"),
-      hotelName: "Hotel Zaman Restaurant",
-      hotelItem: "Fast Food, Panjabi, Sandwich",
-      location: "kazi Deiry, Taiger Pass",
-      area: "Chittagong",
+      image: require("../../assets/image/p7.jpeg"),
+      hotelName: "Veg Hawailian Pizza",
+      hotelItem: "Paneer, sweet Corn, Pineapple with Extra Cheese",
+      price: 255,
       rating: 4.7,
-      onePerson: "Rs.150 for one"
+
     },
     {
       id: 4,
-      image: require("../../assets/image/food4.jpg"),
-      hotelName: "Hotel Zaman Restaurant",
-      hotelItem: "Fast Food, Sandwich, South-Indian Food",
-      location: "kazi Deiry, Taiger Pass",
-      area: "Chittagong",
+      image: require("../../assets/image/macroni.jpeg"),
+      hotelName: "Macroni & Cheese Veg",
+      hotelItem: "Quintessential Veg Macroni N Cheese",
+      price: 255,
       rating: 3.5,
-      onePerson: "Rs.300 for one"
     },
     {
       id: 5,
-      image: require("../../assets/image/food5.jpg"),
-      hotelName: "Hotel Zaman Restaurant",
-      hotelItem: "Fast Food, Chienese, Sandwich, Pizza",
-      location: "kazi Deiry, Taiger Pass ",
-      area: "Chittagong",
-      rating: 4.00,
-      onePerson: "Rs.250 for one"
-
+      image: require("../../assets/image/b1.jpeg"),
+      hotelName: "Paneer Tikka Garlic Bread",
+      hotelItem: "Paneer Tikka, Red Paprika, 2 types of Cheese",
+      price: 180,
+      rating: 4.7,
     },
   ]
 
@@ -201,37 +200,160 @@ export default function Home({ navigation }) {
 
     return (
 
+      // <TouchableOpacity>
+      //   <View style={styles.foodhotel}>
+      //     <View >
+      //       <Image source={item.image} style={styles.foodimg}></Image>
+      //     </View>
+      //     <View style={{ position: 'relative', alignItems: "center", justifyContent: "center", alignSelf: "center" }}>
+      //       <ImageBackground style={styles.veg}>
+      //       </ImageBackground>
+      //       <View style={styles.vegText}>
+      //         <Entypo name={'leaf'} style={{ marginRight: 5, fontSize: 16, }} />
+      //         <Text style={{ textAlign: "center", fontWeight: "700" }}>PURE VEG RESTAURANT</Text>
+      //       </View>
+      //     </View>
+      //     <View style={{ flexDirection: "row", marginRight: 10, marginLeft: 10, justifyContent: "space-between" }}  >
+      //       <View>
+      //         <Text style={styles.Hname}>{item.hotelName}</Text>
+      //         <Text style={styles.foodtype}>{item.hotelItem}</Text>
+
+      //       </View >
+      //       <View>
+      //         <View style={styles.Frate}>
+      //           <Text style={styles.rate}>{item.rating}</Text>
+      //           <FontAwesome name={'star'} style={styles.star} />
+      //         </View>
+      //         <View>
+      //           <Text style={styles.p1}>{item.onePerson}</Text>
+      //         </View>
+
+      //       </View>
+      //     </View>
+
+      //   </View>
+      // </TouchableOpacity>
+
       <TouchableOpacity>
         <View style={styles.foodhotel}>
-          <View >
-            <Image source={item.image} style={styles.foodimg}></Image>
-          </View>
-          <View style={{ position: 'relative', alignItems: "center", justifyContent: "center", alignSelf: "center" }}>
-            <ImageBackground style={styles.veg}>
-            </ImageBackground>
-            <View style={styles.vegText}>
-              <Entypo name={'leaf'} style={{ marginRight: 5, fontSize: 16, }} />
-              <Text style={{ textAlign: "center", fontWeight: "700" }}>PURE VEG RESTAURANT</Text>
+          <View style={{ flexDirection: "row" }}>
+            <View >
+              <Image source={item.image} style={styles.foodimg}></Image>
             </View>
-          </View>
-          <View style={{ flexDirection: "row", marginRight: 10, marginLeft: 10, justifyContent: "space-between" }}  >
-            <View>
-              <Text style={styles.Hname}>{item.hotelName}</Text>
-              <Text style={styles.foodtype}>{item.hotelItem}</Text>
-
-            </View >
-            <View>
-              <View style={styles.Frate}>
-                <Text style={styles.rate}>{item.rating}</Text>
-                <FontAwesome name={'star'} style={styles.star} />
-              </View>
+            <View style={{ width: "58%" }}>
               <View>
-                <Text style={styles.p1}>{item.onePerson}</Text>
-              </View>
+                <Text style={styles.Hname}>{item.hotelName}</Text>
+                <Text style={styles.foodtype}>{item.hotelItem}</Text>
 
+              </View >
+              <View>
+                <Text style={styles.Pname}>Rs. {item.price}</Text>
+              </View >
+              <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+                <View style={styles.Frate}>
+                  <Text style={styles.rate}>{item.rating}</Text>
+                  <FontAwesome name={'star'} style={styles.star} />
+                </View>
+                <View>
+                  <View style={styles.centeredView}>
+                    <Modal
+                      animationType="slide"
+                      transparent={true}
+                      visible={modalVisible}
+                      onRequestClose={() => {
+                        Alert.alert("Modal has been closed.");
+                        setModalVisible(!modalVisible);
+                      }}
+                    >
+                      <View style={styles.centeredView}>
+                        <View style={styles.modalView}>
+                          <Text style={styles.modalText}>Margerita pizza</Text>
+                          <View style={{ alignItems: "center", marginBottom: 10 }}>
+                            <View style={{ height: 150, width: 150, backgroundColor: "grey", borderRadius: 20 }}></View>
+                          </View>
+                          <View style={{ marginBottom: 10 }}>
+                            <Text style={styles.toppingText}>A Fiery And Letthal Combination of Hot and Garlic Dip, Jalapenos,,Mashrooms,Olives,Capsicum.</Text>
+                          </View>
+
+                          <View style={{ marginBottom: 10 }}>
+                            <View style={{ flexDirection: "row" }}>
+                              <View style={{ width: "90%", flexDirection: "row", justifyContent: "space-between", top: 8, marginRight: 10 }}>
+                                <Text>Small (serves 1, 17.7 cm)</Text>
+                                <Text >Rs. 255</Text>
+
+                              </View>
+                              <RadioButton
+                                value="first"
+                                status={checked === 'first' ? 'checked' : 'unchecked'}
+                                onPress={() => setChecked('first')}
+                                color="#106733"
+
+                              />
+                            </View>
+                            <View style={{ flexDirection: "row" }}>
+                              <View style={{ width: "90%", flexDirection: "row", justifyContent: "space-between", top: 8, marginRight: 10 }}>
+                                <Text>Regular (serves 2, 24.5 cm)</Text>
+                                <Text >Rs. 255</Text>
+                              </View>
+                              <RadioButton
+                                value="second"
+                                status={checked === 'second' ? 'checked' : 'unchecked'}
+                                onPress={() => setChecked('second')}
+                                color="#106733"
+                              />
+                            </View>
+                            <View style={{ flexDirection: "row" }}>
+                              <View style={{ width: "90%", flexDirection: "row", justifyContent: "space-between", top: 8, marginRight: 10 }}>
+                                <Text>Large (serves 3, 33 cm)</Text>
+                                <Text >Rs. 255</Text>
+                              </View>
+                              <RadioButton
+                                value="third"
+                                status={checked === 'third' ? 'checked' : 'unchecked'}
+                                onPress={() => setChecked('third')}
+                                color="#106733"
+                              />
+                            </View>
+                            <View style={{ borderWidth: 0.3, borderColor: "grey" }}></View>
+                          </View>
+                          <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+                            <Pressable
+
+                              style={[styles.button, styles.CbuttonClose]}
+                              onPress={() => setModalVisible(!modalVisible)}
+                            >
+                              <Text style={styles.CtextStyle}>Cancel</Text>
+                            </Pressable>
+                            <Pressable
+
+                              style={[styles.button, styles.AbuttonClose]}
+                              onPress={() => setModalVisible(!modalVisible)}
+                            >
+                              <Text style={styles.AtextStyle}>Add Items</Text>
+                            </Pressable>
+                          </View>
+                        </View>
+                      </View>
+                    </Modal>
+                    <Pressable
+                      // style={[styles.button, styles.buttonOpen]}
+                      style={[styles.addbtn]}
+                      onPress={() => setModalVisible(true)}
+                    >
+                      <Text style={styles.addtext}>Add + </Text>
+                    </Pressable>
+                  </View>
+                  <View>
+
+                  </View>
+                  {/* <TouchableOpacity style={styles.addbtn}>
+                                        
+                                    </TouchableOpacity> */}
+                </View>
+
+              </View>
             </View>
           </View>
-
         </View>
       </TouchableOpacity>
 
@@ -241,6 +363,7 @@ export default function Home({ navigation }) {
 
 
   return (
+
     <ScrollView style={styles.screen}>
 
       <View style={styles.container}>
@@ -251,13 +374,13 @@ export default function Home({ navigation }) {
             <Entypo name={'location-pin'} style={styles.iconlocation} />
             <Text style={styles.locat}>Agrabad 435, Chittagong</Text>
           </View>
-          <Image source={require("../../assets/image/boyimage.jpg")} style={styles.boy} />
-        </View>
-
-        <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 18 }}>
-          <View style={styles.searchbox} >
-            <Feather name={'search'} style={styles.searchicon} />
-            <TextInput style={styles.searchtext} placeholder="Search" />
+          <View style={{ flexDirection: "row" }}>
+            <Image source={require("../../assets/image/boyimage.jpg")} style={styles.boy} />
+            <TouchableOpacity onPress={() => navigation.navigate('Search')} >
+              <View >
+                <Feather name={"search"} style={styles.search} />
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -280,14 +403,14 @@ export default function Home({ navigation }) {
 
         <View style={styles.heading}>
           <View>
-            <Text style={styles.listhead1}>Eat what makes you Happy</Text>
+            <Text style={styles.listhead1}>Explore Menu</Text>
           </View>
 
         </View>
 
         <View >
           <FlatList
-            numColumns={4}
+            numColumns={3}
             // horizontal
             data={Menu}
             renderItem={MenuData}
@@ -296,26 +419,16 @@ export default function Home({ navigation }) {
           </FlatList>
         </View>
 
-        <View >
-          <TouchableOpacity style={styles.all}>
-            <View style={styles.seemore}>
-              <Text style={{ color: colors.secondarytext }}>See More</Text>
-              <Entypo name={'chevron-thin-down'} style={styles.arrow1} />
-            </View>
-          </TouchableOpacity>
-        </View>
-
         <View style={styles.heading}>
           <View>
-            <Text style={styles.listhead}>Today New Arivable</Text>
-            <Text style={styles.list}>Best of the today food list update</Text>
+            <Text style={styles.listhead}>Best Seller</Text>
           </View>
-          <View>
+          {/* <View>
             <TouchableOpacity style={styles.all}>
               <Text style={styles.see}>See All</Text>
               <AntDesign name={'right'} style={styles.arrow} />
             </TouchableOpacity>
-          </View>
+          </View> */}
 
         </View>
 
@@ -332,7 +445,7 @@ export default function Home({ navigation }) {
 
         <View style={styles.heading}>
           <View>
-            <Text style={styles.listhead}>Restaurants Around You</Text>
+            <Text style={[styles.listhead, { marginTop: 15, marginBottom: 10 }]}>Recommended Items</Text>
           </View>
         </View>
 
@@ -396,6 +509,14 @@ let styles = StyleSheet.create({
     width: 32,
     borderRadius: 32
   },
+  search: {
+    fontSize: 20,
+    fontWeight: "900",
+    color: colors.secondaryhead,
+    fontSize: 22,
+    marginLeft: 15,
+    top: 3
+  },
   searchbox: {
     height: 36,
     width: 280,
@@ -417,7 +538,7 @@ let styles = StyleSheet.create({
 
   },
   sliderimg: {
-    marginTop: 28,
+    marginTop: 20,
     height: 130,
     // width:300,
     borderRadius: 20,
@@ -455,7 +576,7 @@ let styles = StyleSheet.create({
   heading: {
     flexDirection: "row",
     justifyContent: 'space-between',
-    marginTop: 30
+    marginTop: 10
   },
   listhead: {
     color: "#1F2937",
@@ -491,11 +612,11 @@ let styles = StyleSheet.create({
 
   },
   imgOfmenuFood: {
-    height: 80,
-    width: 80,
+    height: 100,
+    width: 100,
     borderRadius: 80,
     marginBottom: 10,
-    marginTop: 20,
+    // marginTop: 10,
     // flexDirection:'row',
     alignItems: "center",
     // justifyContent:"center",
@@ -507,13 +628,13 @@ let styles = StyleSheet.create({
     // display:"flex",
     position: "relative",
     // marginLeft:10,
-    height: 140,
-    width: 88,
+    height: 160,
+    width: 100,
     paddingTop: 10,
     paddingRight: 10,
     paddingLeft: 10,
     paddingBottom: 20,
-    marginRight: 12,
+    marginRight: 30,
     justifyContent: "center",
     textAlign: "center",
     alignItems: "center"
@@ -539,8 +660,8 @@ let styles = StyleSheet.create({
     // display:"flex",
     position: "relative",
     // marginLeft:10,
-    height: 220,
-    width: 150,
+    height: 210,
+    width: 140,
     backgroundColor: "#fff",
     borderRadius: 10,
     marginRight: 20,
@@ -569,13 +690,11 @@ let styles = StyleSheet.create({
   },
   imgOfFood: {
     // marginTop: 16,
-    height: 140,
-    width: 150,
+    height: 130,
+    width: 140,
     marginBottom: 10,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10
-
-
   },
   iconlocationfood: {
     fontSize: 15,
@@ -599,8 +718,10 @@ let styles = StyleSheet.create({
 
   },
   foodresto: {
-    color: colors.secondarytext,
-    fontSize: 12
+    color: colors.secondaryhead,
+    fontSize: 15,
+    fontWeight: "500",
+    marginTop: 10
   },
   iconlocationhotel: {
     fontSize: 20,
@@ -708,6 +829,160 @@ let styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 2
 
-  }
+  },
+  foodhotel: {
+    // flexDirection:"row",
+    height: 140,
+    width: "100%",
+    borderWidth: 1,
+    borderRadius: 20,
+    borderColor: "grey",
+    marginTop: 10,
+    backgroundColor: "#fff"
+
+  },
+  foodimg: {
+    height: 140,
+    width: 130,
+    borderTopLeftRadius: 20,
+    borderBottomLeftRadius: 20,
+    marginBottom: 20,
+    marginRight: 15,
+    // position:"absolute"
+  },
+  Hname: {
+    color: colors.secondaryhead,
+    fontWeight: "500",
+    fontSize: 18,
+    marginBottom: 7,
+    marginTop: 2
+  },
+  foodtype: {
+    color: colors.secondarytext,
+    marginBottom: 5
+
+  },
+  rate: {
+    height: 25,
+    width: 50,
+    borderRadius: 5,
+    backgroundColor: colors.primary,
+    color: "white",
+    alignItems: "center",
+    paddingLeft: 5,
+    paddingTop: 2,
+    fontSize: 14,
+  },
+  p1: {
+    color: colors.secondarytext,
+    fontSize: 12,
+    fontWeight: "600"
+  },
+  Pname: {
+    color: colors.secondaryhead,
+    fontWeight: "500",
+    fontSize: 16,
+    marginBottom: 7
+  },
+  Frate: {
+    position: "relative",
+    // alignSelf: "flex-end"
+  },
+  star: {
+    color: "white",
+    fontSize: 13,
+    position: "absolute",
+    top: 5,
+    left: 25,
+    marginLeft: 4
+  },
+  addbtn: {
+    height: 26,
+    width: 60,
+    borderColor: colors.primary,
+    borderWidth: 2,
+    borderRadius: 5,
+    justifyContent: "center",
+    top: -3
+  },
+  addtext: {
+    color: colors.primary,
+    textAlign: "center"
+  },
+  all: {
+    flexDirection: "row",
+    // marginTop:10
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "flex-end",
+    alignItems: "center",
+    // marginTop: 22
+  },
+  modalView: {
+    margin: 2,
+    backgroundColor: "white",
+    // borderRadius: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    padding: 15,
+    // alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+    width: "100%",
+    // height:"50%",
+    // justifyContent: "flex-end",
+  },
+  toppingText: {
+    fontSize: 14,
+    color: colors.secondarytext
+  },
+  button: {
+    borderRadius: 10,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  CbuttonClose: {
+    backgroundColor: "#F4F6F7",
+    color: colors.secondaryhead,
+    height: 50,
+    width: "30%",
+    justifyContent: "center",
+    borderColor: "grey",
+  },
+  AbuttonClose: {
+    backgroundColor: "#2196F3",
+    height: 50,
+    width: "67%",
+    backgroundColor: colors.primary,
+    justifyContent: "center"
+  },
+  CtextStyle: {
+    color: colors.secondarytext,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  AtextStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  modalText: {
+    marginBottom: 15,
+    fontSize: 18,
+    color: colors.secondaryhead,
+    fontWeight: "600"
+    // textAlign: "center",
+
+  },
 
 })

@@ -5,6 +5,7 @@ import Onbrd from '../container/Onbrd';
 import Home from '../container/Home';
 import PizzaD from '../container/PizzaD';
 import PizzaLnozz from '../container/PizzaD';
+import SearchScrn from '../container/SearchScrn';
 
 function HomeScreen() {
     return (
@@ -30,6 +31,8 @@ const FoodStack = () => {
         <Stack.Navigator>
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="PizzaD" component={PizzaD} />
+            <Stack.Screen name="Search" component={SearchScrn} />
+            
         </Stack.Navigator>
     )
 }

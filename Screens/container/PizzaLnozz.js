@@ -5,6 +5,7 @@ import Entypo from 'react-native-vector-icons/Entypo'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import { colors } from '../../assets/colors/colors'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 
 export default function PizzaLnozz() {  
@@ -26,7 +27,7 @@ export default function PizzaLnozz() {
         },
         {
             id: 3,
-            image: require("../../assets/image/holic1.jpg"),
+            image: require("../../assets/image/p1.jpg"),
             foodName: "Cheesy Seven Pizza",
             price: "Rs.210",
             details: "A classic Cheesy Margherita. Can't Go Wrong."
@@ -61,7 +62,8 @@ export default function PizzaLnozz() {
     }
 
     return (
-        <ScrollView style={styles.screen}>
+     
+           <ScrollView style={styles.screen}>
             <View style={styles.container}>
                 <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
                     <TouchableOpacity>
@@ -94,6 +96,7 @@ export default function PizzaLnozz() {
                 </View>
             </View>
         </ScrollView>
+     
     )
 }
 
