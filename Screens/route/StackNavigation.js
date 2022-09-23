@@ -5,6 +5,8 @@ import Onbrd from '../container/Onbrd';
 import Home from '../container/Home';
 import PizzaD from '../container/PizzaD';
 import PizzaLnozz from '../container/PizzaD';
+import LogIn from '../container/LogIn';
+import Otp from '../container/Otp';
 
 function HomeScreen() {
     return (
@@ -24,6 +26,16 @@ const Onboarding = () => {
         </Stack.Navigator>
     )
 }
+
+const LogInScrn = () => {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name="log" component={LogIn} />
+            <Stack.Screen name="otp" component={Otp} />
+        </Stack.Navigator>
+    )
+}
+
 
 const FoodStack = () => {
     return (
@@ -55,4 +67,4 @@ const Money = () => {
         </Stack.Navigator>
     )
 }
-export { FoodStack, Dining, Offers, Money,Onboarding}
+export { FoodStack, Dining, Offers, Money,Onboarding,LogInScrn}

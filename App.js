@@ -12,26 +12,28 @@ import { Provider } from 'react-redux';
 import { store } from './Screens/redux/store';
 import Example from './Screens/container/Example';
 import Post from './Screens/container/Post';
+import LogIn from './Screens/container/LogIn';
+import Otp from './Screens/container/Otp';
 
 export default function App() {
   // const store = configStore()
 
   return (
     <Provider store={store}>
-       {/* <NavigationContainer */}
+       {/* <NavigationContainer> */}
     
-       {/* <Drawernavigation />  */}
+       {/* <Drawernavigation />   */}
       {/* <BottomNavigation /> */}
     {/* </NavigationContainer>   */}
-    {/* <Example/> */}
-    <Post />
+    {/* <Example/>  */}
+    {/* <Post /> */}
+    {/* <LogIn /> */}
+    <Otp/>
     </Provider>
-    
 //  <PizzaD /> 
 //  <Home /> 
 //  <PizzaLnozz /> 
-//  <Onbrd /> 
-    
+//  <Onbrd />     
   )
 }
 

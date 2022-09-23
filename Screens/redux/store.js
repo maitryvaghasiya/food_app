@@ -25,4 +25,4 @@ export const store = createStore(rootReducer, applyMiddleware(...middlewares))
 sagaMiddleware.run(rootSaga)
 
     // return {store, persistor};
-    // return store;
+    // return 1;
