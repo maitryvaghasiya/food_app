@@ -4,3 +4,8 @@ export const DECREMENT_COUNTER = "DECREMENT_COUNTER"
 export const GET_CATEGORY = "GET_CATEGORY"
 
 export const GET_POST = "GET_POST"
+
+
+export const SIGN_UP = "SIGN_UP"
+export const EMAIL_VERIFICATION = "EMAIL_VERIFICATION"
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS"

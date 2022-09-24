@@ -20,20 +20,20 @@ export default function App() {
 
   return (
     <Provider store={store}>
-       {/* <NavigationContainer> */}
-    
-       {/* <Drawernavigation />   */}
+      {/* <NavigationContainer> */}
+
+      {/* <Drawernavigation />   */}
       {/* <BottomNavigation /> */}
-    {/* </NavigationContainer>   */}
-    {/* <Example/>  */}
-    {/* <Post /> */}
-    {/* <LogIn /> */}
-    <Otp/>
+      {/* </NavigationContainer>   */}
+      {/* <Example/>  */}
+      {/* <Post /> */}
+      <LogIn />
+      {/* <Otp/> */}
     </Provider>
-//  <PizzaD /> 
-//  <Home /> 
-//  <PizzaLnozz /> 
-//  <Onbrd />     
+    //  <PizzaD /> 
+    //  <Home /> 
+    //  <PizzaLnozz /> 
+    //  <Onbrd />     
   )
 }
 

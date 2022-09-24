@@ -7,7 +7,7 @@ export default function Otp() {
     return (
         <View style={styles.container}>
             <View style={{ marginBottom: 10 , marginTop:90}}>
-                <Text style={{ color: "black", fontSize: 26, fontWeight: "600" }}>Verify your phone number</Text>
+                <Text style={{ color: "black", fontSize: 26, fontWeight: "600" }}>1Verify your phone number</Text>
             </View>
             <View style={{ marginBottom: 50 , marginTop:30}}>
                 <Text style={{ color: colors.secondarytext, fontSize: 18 }}>Enter your OTP code here</Text>
