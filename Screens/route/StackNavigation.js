@@ -5,8 +5,9 @@ import Onbrd from '../container/Onbrd';
 import Home from '../container/Home';
 import PizzaD from '../container/PizzaD';
 import PizzaLnozz from '../container/PizzaD';
-import LogIn from '../container/LogIn';
+import LogIn from '../container/SignUp';
 import Otp from '../container/Otp';
+import Setting from '../container/Setting';
 
 function HomeScreen() {
     return (
@@ -18,28 +19,29 @@ function HomeScreen() {
 
 const Stack = createNativeStackNavigator();
 
-const Onboarding = () => {
-    return (
-        <Stack.Navigator>
-            <Stack.Screen name="onboard" component={Onbrd} />
-            {/* <Stack.Screen name="PizzaD" component={PizzaD} /> */}
-        </Stack.Navigator>
-    )
-}
+// const Onboarding = () => {
+//     return (
+//         <Stack.Navigator>
+//             <Stack.Screen name="onboard" component={Onbrd} />
+//             {/* <Stack.Screen name="PizzaD" component={PizzaD} /> */}
+//         </Stack.Navigator>
+//     )
+// }
 
-const LogInScrn = () => {
-    return (
-        <Stack.Navigator>
-            <Stack.Screen name="log" component={LogIn} />
-            <Stack.Screen name="otp" component={Otp} />
-        </Stack.Navigator>
-    )
-}
+// const LogInScrn = () => {
+//     return (
+//         <Stack.Navigator>
+//             <Stack.Screen name="log" component={LogIn} />
+//             <Stack.Screen name="otp" component={Otp} />
+//         </Stack.Navigator>
+//     )
+// }
 
 
 const FoodStack = () => {
     return (
         <Stack.Navigator>
+            <Stack.Screen name="onboard" component={Onbrd} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="PizzaD" component={PizzaD} />
         </Stack.Navigator>
@@ -60,11 +62,12 @@ const Offers = () => {
         </Stack.Navigator>
     )
 }
-const Money = () => {
+const SettingStack = () => {
     return (
         <Stack.Navigator>
-            <Stack.Screen name="Money" component={PizzaLnozz} />
+            <Stack.Screen name="Setting" component={Setting} />
+            <Stack.Screen name="LogIn" component={LogIn} />
         </Stack.Navigator>
     )
 }
-export { FoodStack, Dining, Offers, Money,Onboarding,LogInScrn}
+export { FoodStack, Dining, Offers,SettingStack}

@@ -12,7 +12,7 @@ import { Provider } from 'react-redux';
 import { store } from './Screens/redux/store';
 import Example from './Screens/container/Example';
 import Post from './Screens/container/Post';
-import LogIn from './Screens/container/LogIn';
+import LogIn from './Screens/container/SignUp';
 import Otp from './Screens/container/Otp';
 
 export default function App() {
@@ -20,14 +20,12 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      {/* <NavigationContainer> */}
-
-      {/* <Drawernavigation />   */}
-      {/* <BottomNavigation /> */}
-      {/* </NavigationContainer>   */}
+      <NavigationContainer>
+      <BottomNavigation />
+      </NavigationContainer>  
       {/* <Example/>  */}
       {/* <Post /> */}
-      <LogIn />
+      {/* <LogIn /> */}
       {/* <Otp/> */}
     </Provider>
     //  <PizzaD /> 

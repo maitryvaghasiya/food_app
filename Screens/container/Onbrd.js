@@ -22,11 +22,7 @@ export default function Onbrd({navigation}) {
               marginHorizontal: 3,
               backgroundColor,
             }}
-
-            
-
-          />
-          
+          />         
         );
       };
       
@@ -68,7 +64,7 @@ export default function Onbrd({navigation}) {
     subTitleStyles={{color:"#6B7280"}}
 
     onSkip={() => navigation.navigate("Home")}
-    onDone={() => navigation.navigate("PizzaD")}
+    onDone={() => navigation.navigate("Home")}
 
     pages={[
       {

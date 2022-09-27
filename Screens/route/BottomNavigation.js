@@ -5,7 +5,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import Counter from '../container/Counter';
 import Post from '../container/Post';
-import { Dining, FoodStack, Offers } from './StackNavigation';
+import { Dining, FoodStack, Offers, SettingStack } from './StackNavigation';
+import Setting from '../container/Setting';
 
 const Tab = createBottomTabNavigator();
 
@@ -26,7 +27,7 @@ export const BottomNavigation = () => {
                   } else if (route.name === 'Offers') {
                     iconName = focused 
                     return <MaterialCommunityIcons name={'ticket-percent'} size={23} color={color} />;
-                  } else if (route.name === 'Money') {
+                  } else if (route.name === 'Setting') {
                     iconName = focused 
                     return <Ionicons name={'file-tray-full-sharp'} size={22} color={color} />;
                   }
@@ -43,9 +44,9 @@ export const BottomNavigation = () => {
             <Tab.Screen name="Delivery" component={FoodStack} />
             <Tab.Screen name="Dining" component={Dining} />
             <Tab.Screen name="Offers" component={Offers} />
-            <Tab.Screen name="Money" component={Dining} />
-            <Tab.Screen name="counter" component={Counter} />
-            <Tab.Screen name="post" component={Post} />
+            <Tab.Screen name="Setting" component={SettingStack} />
+            {/* <Tab.Screen name="counter" component={Counter} />
+            <Tab.Screen name="post" component={Post} /> */}
 
         </Tab.Navigator>
     )

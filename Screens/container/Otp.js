@@ -3,7 +3,9 @@ import React, { useState } from 'react'
 import { colors } from '../../assets/colors/colors'
 
 export default function Otp() {
+
     const [otp, setOtp] = useState("");
+    
     return (
         <View style={styles.container}>
             <View style={{ marginBottom: 10 , marginTop:90}}>
