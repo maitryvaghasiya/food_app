@@ -12,18 +12,29 @@ import { Provider } from 'react-redux';
 import { store } from './Screens/redux/store';
 import Example from './Screens/container/Example';
 import Post from './Screens/container/Post';
+import LogIn from './Screens/container/LogIn';
+import WelcomePage from './Screens/container/WelcomePage';
+import ForgetPass from './Screens/container/ForgetPass';
+import Otp from './Screens/container/Otp';
+import Password from './Screens/container/Password';
 
 export default function App() {
   // const store = configStore()
 
   return (
     <Provider store={store}>
-       <NavigationContainer>
+       {/* <NavigationContainer>
        <BottomNavigation /> 
-     </NavigationContainer>   
+     </NavigationContainer>    */}
     {/* <Example/> */}
     {/* <Post /> */}
+  
     {/* <PizzaD/> */}
+    {/* <LogIn/> */}
+    {/* <WelcomePage/> */}
+    {/* <Otp/> */}
+    {/* <ForgetPass/> */}
+  <Password/>
     </Provider>
     
 //  <PizzaD /> 

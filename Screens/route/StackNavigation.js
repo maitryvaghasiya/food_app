@@ -51,11 +51,11 @@ const Offers = () => {
         </Stack.Navigator>
     )
 }
-const Money = () => {
+const SettingStack = () => {
     return (
         <Stack.Navigator>
-            <Stack.Screen name="Money" component={PizzaLnozz} />
+            <Stack.Screen name="Money" component={Setting} />
         </Stack.Navigator>
     )
 }
-export { FoodStack, Dining, Offers, Money,Onboarding}
+export { FoodStack, Dining, Offers, SettingStack,Onboarding}
