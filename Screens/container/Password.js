@@ -1,14 +1,23 @@
-import { View, Text, ScrollView, TouchableOpacity, Image, TextInput } from 'react-native'
+import { View, Text, ScrollView, TouchableOpacity, Image, TextInput, StyleSheet } from 'react-native'
 import React from 'react'
+import { colors } from '../../assets/colors/colors';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
-export default function Password() {
+
+export default function Password({navigation}) {
 
     const [name, onChangeText] = React.useState("");
     const [email, onChangeEmail] = React.useState("");
+    const [phone, onChangePhone] = React.useState("");
 
     return (
         <ScrollView style={styles.screen}>
             <View style={styles.container}>
+            <View style={{ flexDirection: 'row' }}>
+                    <TouchableOpacity onPress={() => navigation.goBack(null)}>
+                        <MaterialIcons name={'arrow-back-ios'} style={styles.searchicon} />
+                    </TouchableOpacity>
+                </View>
                 <View style={{ alignItems: "center" }}>
                     <Image style={styles.image} source={require("../../assets/image/privacy.png")} />
                 </View>
@@ -34,7 +43,7 @@ export default function Password() {
                             value={phone}
                         />
                     </View>
-                    <TouchableOpacity style={{ alignItems: "center" }}>
+                    <TouchableOpacity style={{ alignItems: "center" }} onPress={() => navigation.navigate("mainscreen")}>
                         <View style={styles.Sbutton}>
                             <Text style={{ color: "white", fontWeight: "600", fontSize: 16, textAlign: "center" }}>Submit</Text>
                         </View>
@@ -53,6 +62,10 @@ const styles = StyleSheet.create({
         margin: 18,
         // display:"flex"
         position: "relative",
+    },
+    searchicon: {
+        fontSize: 20,
+        color: colors.primary,
     },
     inputView: {
         backgroundColor: "#F1F3F3",

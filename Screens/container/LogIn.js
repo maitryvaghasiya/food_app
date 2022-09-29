@@ -2,29 +2,34 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image } from 'reac
 import React from 'react'
 import { colors } from '../../assets/colors/colors';
 import { ScrollView } from 'react-native-gesture-handler';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Entypo from 'react-native-vector-icons/Entypo'
+import AntDesign from 'react-native-vector-icons/AntDesign'
 
 
 export default function LogIn({ navigation }) {
-    const [name, onChangeText] = React.useState("");
-    const [email, onChangeEmail] = React.useState("");
+
+    const [phone, onChangePhone] = React.useState("");
     const [password, onChangePassword] = React.useState("");
 
     const dispatch = useDispatch();
+
+    // const auth = useSelector(state => state.user)
+
     const handleSignIn = () => {
-        dispatch(signinUser({ email, password }))
+        dispatch(signinUser({ phone, password }))
     }
+
     return (
         <ScrollView style={styles.screen}>
             <View style={styles.container}>
-            <View style={{ alignItems: "center" }}>
+                <View style={{ alignItems: "center" }}>
                     <Image style={styles.image} source={require("../../assets/image/login1.png")} />
                 </View>
-                <View style={{ marginBottom: 20, alignItems: "center" }}>
+                <View style={{ marginBottom: 30, alignItems: "center" }}>
                     <Text style={{ color: "black", fontSize: 22, fontWeight: "600" }}>Log in to your account</Text>
                 </View>
-                
+
 
                 {/* <View style={styles.inputView}>
         <TextInput
@@ -36,19 +41,19 @@ export default function LogIn({ navigation }) {
         />
       </View> */}
 
-                <View style={{flexDirection:"row"}}>
-                <Entypo name={'mobile'} style={styles.mobileicon}/>
+                <View style={{ flexDirection: "row" }}>
+                    <Entypo name={'mobile'} style={styles.mobileicon} />
                     {/* <Text style={{ color: colors.secondarytext, fontSize: 16 }}>Full Name</Text> */}
                     <TextInput
                         style={styles.inputView}
-                        placeholder="Mobile Number OR Email Id"
+                        placeholder="Mobile Number"
                         placeholderTextColor="#6B7280"
-                        onChangeText={onChangeEmail}
-                        value={email}
+                        onChangeText={onChangePhone}
+                        value={phone}
                     />
                 </View>
-                <View style={{flexDirection:"row"}}>
-                <Entypo name={'lock'} style={styles.mobileicon}/>
+                <View style={{ flexDirection: "row" }}>
+                    <Entypo name={'lock'} style={styles.mobileicon} />
                     {/* <Text style={{ color: colors.secondarytext, fontSize: 16 }}>Email Address</Text> */}
                     <TextInput
                         style={styles.inputView1}
@@ -59,19 +64,34 @@ export default function LogIn({ navigation }) {
                         secureTextEntry={true}
                     />
                 </View>
-                <TouchableOpacity >
-                    <Text style={{ color: colors.primary, textAlign: "right",marginBottom:20 }}>Forget Password?</Text>
+                <TouchableOpacity onPress={() => navigation.navigate("ForgetPass")}>
+                    <Text style={{ color: colors.primary, textAlign: "right", marginBottom: 40 }}>Forget Password?</Text>
                 </TouchableOpacity>
+
+                <View style={{ flexDirection: 'row' ,alignItems:"center",justifyContent:"center",marginBottom:20}}>
+                    <View style={{ borderWidth: 0.5, borderColor: colors.secondarytext, width: "30%" }}></View>
+                    <View>
+                        <Text style={{ textAlign: "center", color: colors.secondarytext, fontSize: 14 ,marginRight:5,marginLeft:5}}>OR</Text>
+                    </View>
+                    <View style={{ borderWidth: 0.5, borderColor: colors.secondarytext, width: "30%" }}></View>
+                </View>
+                <View>
+
+                    <TouchableOpacity>
+                        <AntDesign name={'google'} style={styles.google} />
+                    </TouchableOpacity>
+                </View>
                 <View style={{ alignItems: "center" }}>
-                    <TouchableOpacity style={styles.loginBtn} onPress={() => handleSignIn()}>
+                    <TouchableOpacity style={styles.loginBtn} onPress={() =>{navigation.navigate("mainscreen"); handleSignIn} }>
+                        {/* onPress={() => handleSignIn()} */}
                         <Text style={styles.loginText}>Log In</Text>
                     </TouchableOpacity>
                 </View>
 
-                <View style={{ alignItems: "center", marginTop: 10 ,flexDirection:"row",justifyContent:"center"}}>
-                    <Text style={{marginRight:5,color:"#6B7280"}}>Don't have an Account?</Text>
-                        <TouchableOpacity><Text style={{ color: colors.primary, textDecorationLine: 'underline', fontSize:15 }}>Sign Up</Text></TouchableOpacity>
-                    
+                <View style={{ alignItems: "center", marginTop: 10, flexDirection: "row", justifyContent: "center" }}>
+                    <Text style={{ marginRight: 5, color: "#6B7280" }}>Don't have an Account?</Text>
+                    <TouchableOpacity onPress={() => navigation.navigate("Welcome")}><Text style={{ color: colors.primary, textDecorationLine: 'underline', fontSize: 15 }}>Sign Up</Text></TouchableOpacity>
+
                 </View>
 
                 {/* <TouchableOpacity style={styles.loginBtn} onPress={() => handleSignup()}>
@@ -107,25 +127,25 @@ const styles = StyleSheet.create({
     },
     inputView: {
         // backgroundColor: "#F1F3F3",
-        borderRadius: 30,
+        // borderRadius: 30,
         width: "90%",
         height: 45,
         // marginBottom: 20,
         alignItems: "center",
         borderBottomWidth: 2,
         borderColor: colors.secondarytext,
-        marginBottom:20
+        marginBottom: 20
     },
     inputView1: {
         // backgroundColor: "#F1F3F3",
-        borderRadius: 30,
+        // borderRadius: 30,
         width: "90%",
         height: 45,
         // marginBottom: 20,
         alignItems: "center",
         borderBottomWidth: 2,
         borderColor: colors.secondarytext,
-        // marginBottom:20
+        marginBottom:10
     },
     TextInput: {
         // height: 50,
@@ -146,7 +166,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         // padding: 10,
         elevation: 2,
-        marginBottom:10
+        marginBottom: 10
     },
     loginText: {
         fontWeight: "700",
@@ -154,10 +174,18 @@ const styles = StyleSheet.create({
         color: "white",
         fontSize: 16
     },
-    mobileicon:{
-        fontSize:20,
-        top:20,
-        paddingRight:5,
-        color:colors.secondarytext
+    mobileicon: {
+        fontSize: 20,
+        top: 20,
+        paddingRight: 5,
+        color: colors.secondarytext
+    },
+    google: {
+        fontSize: 40,
+        top: 20,
+        paddingRight: 5,
+        color: colors.secondarytext,
+        textAlign: "center",
+        marginBottom: 30
     }
 });

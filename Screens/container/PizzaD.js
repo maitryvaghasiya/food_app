@@ -139,8 +139,8 @@ export default function PizzaD({ navigation }) {
                                                     <View style={{ marginBottom: 10 }}>
                                                         <View style={{ flexDirection: "row" }}>
                                                             <View style={{ width: "90%", flexDirection: "row", justifyContent: "space-between", top: 8, marginRight: 10 }}>
-                                                                <Text>Small (serves 1, 17.7 cm)</Text>
-                                                                <Text >Rs. 255</Text>
+                                                                <Text style={{color:colors.secondarytext}}>Small (serves 1, 17.7 cm)</Text>
+                                                                <Text style={{color:colors.secondarytext}}>Rs. 255</Text>
 
                                                             </View>
                                                             <RadioButton
@@ -153,8 +153,8 @@ export default function PizzaD({ navigation }) {
                                                         </View>
                                                         <View style={{ flexDirection: "row" }}>
                                                             <View style={{ width: "90%", flexDirection: "row", justifyContent: "space-between", top: 8, marginRight: 10 }}>
-                                                                <Text>Regular (serves 2, 24.5 cm)</Text>
-                                                                <Text >Rs. 255</Text>
+                                                                <Text style={{color:colors.secondarytext}}>Regular (serves 2, 24.5 cm)</Text>
+                                                                <Text style={{color:colors.secondarytext}}>Rs. 255</Text>
                                                             </View>
                                                             <RadioButton
                                                                 value="second"
@@ -165,8 +165,8 @@ export default function PizzaD({ navigation }) {
                                                         </View>
                                                         <View style={{ flexDirection: "row" }}>
                                                             <View style={{ width: "90%", flexDirection: "row", justifyContent: "space-between", top: 8, marginRight: 10 }}>
-                                                                <Text>Large (serves 3, 33 cm)</Text>
-                                                                <Text >Rs. 255</Text>
+                                                                <Text style={{color:colors.secondarytext}}>Large (serves 3, 33 cm)</Text>
+                                                                <Text style={{color:colors.secondarytext}} >Rs. 255</Text>
                                                             </View>
                                                             <RadioButton
                                                                 value="third"
@@ -227,10 +227,10 @@ export default function PizzaD({ navigation }) {
                 <View style={{ marginTop: 5 }}>
                     <View style={styles.searchbox} >
                         <View style={{ flexDirection: 'row' }}>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => navigation.goBack(null)}>
                                 <MaterialIcons name={'arrow-back-ios'} style={styles.searchicon} />
                             </TouchableOpacity>
-                            <TextInput /><Text style={styles.pizzaT} >Pizza</Text>
+                            <Text style={styles.pizzaT} >Pizza</Text>
                         </View>
                         <View style={{ flexDirection: 'row' }}>
                             <TouchableOpacity >
@@ -344,7 +344,8 @@ let styles = StyleSheet.create({
         color: colors.secondaryhead,
         fontSize: 16,
         fontWeight: "700",
-        left: -25
+        // left: -25,
+        top:-2
     },
     crossicon: {
         fontSize: 20,

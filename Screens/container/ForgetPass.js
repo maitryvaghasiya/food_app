@@ -2,15 +2,22 @@ import { View, Text, ScrollView, StyleSheet, Image, TextInput, TouchableOpacity 
 import React from 'react'
 import Entypo from 'react-native-vector-icons/Entypo'
 import { colors } from '../../assets/colors/colors';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 
-export default function ForgetPass() {
+
+export default function ForgetPass({ navigation }) {
 
     const [phone, onChangePhone] = React.useState("");
 
     return (
         <ScrollView style={styles.screen}>
             <View style={styles.container}>
+                <View style={{ flexDirection: 'row' }}>
+                    <TouchableOpacity onPress={() => navigation.goBack(null)}>
+                        <MaterialIcons name={'arrow-back-ios'} style={styles.searchicon} />
+                    </TouchableOpacity>
+                </View>
                 <View style={{ alignItems: "center" }}>
                     <Image style={styles.image} source={require("../../assets/image/forget.png")} />
                 </View>
@@ -29,7 +36,7 @@ export default function ForgetPass() {
                 <View style={{ marginBottom: 10, alignItems: "center" }}>
                     <Text style={{ color: colors.secondarytext, fontSize: 13, textAlign: "center" }}>We'll send you a verification code to help us keep your account safe.</Text>
                 </View>
-                <TouchableOpacity style={{ alignItems: "center" }}>
+                <TouchableOpacity style={{ alignItems: "center" }} onPress={() => navigation.navigate("Otp")}>
                     <View style={styles.Sbutton}>
                         <Text style={{ color: "white", fontWeight: "600", fontSize: 16, textAlign: "center" }}>Send Otp</Text>
                     </View>
@@ -48,6 +55,10 @@ let styles = StyleSheet.create({
         margin: 18,
         // display:"flex"
         position: "relative",
+    },
+    searchicon: {
+        fontSize: 20,
+        color: colors.primary,
     },
     image: {
         marginTop: 50,

@@ -4,9 +4,10 @@ import { ScrollView, TextInput } from 'react-native-gesture-handler'
 import { colors } from '../../assets/colors/colors';
 import RadioButtonRN from 'radio-buttons-react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import { useDispatch } from 'react-redux';
+import { signupUser } from '../redux/action/auth.action';
 
-
-export default function WelcomePage() {
+export default function WelcomePage({navigation}) {
 
     const data = [
         {
@@ -22,10 +23,21 @@ export default function WelcomePage() {
     const [date, onChangeDate] = React.useState("");
     const [phone, onChangePhone] = React.useState("");
 
+    const dispatch = useDispatch();
+
+    const handleSignup = () => {
+        dispatch(signupUser({ phone, password }))
+    }
+
 
     return (
 
         <View style={styles.screen}> 
+        <View style={{ flexDirection: 'row' }}>
+                    <TouchableOpacity onPress={() => navigation.goBack(null)}>
+                        <MaterialIcons name={'arrow-back-ios'} style={styles.searchicon} />
+                    </TouchableOpacity>
+                </View>
         <View style={{ alignItems: "center" }}>
                     <Image style={styles.image} source={require("../../assets/image/welcome.png")} />
                 </View>
@@ -106,11 +118,16 @@ export default function WelcomePage() {
                     <View style={{ marginBottom: 10, alignItems: "center" }}>
                     <Text style={{ color: colors.secondarytext, fontSize: 13, textAlign: "center" }}>We'll send you a verification code to help us keep your account safe.</Text>
                 </View>
-                    <TouchableOpacity style={{ alignItems: "center" }}>
+                    <TouchableOpacity style={{ alignItems: "center" }} onPress={() => {handleSignup(); navigation.navigate("Otp")}}>
                         <View style={styles.Sbutton}>
                             <Text style={{ color: "white", fontWeight: "600", fontSize: 16, textAlign: "center" }}>Verify</Text>
                         </View>
                     </TouchableOpacity>
+                </View>
+                <View style={{ alignItems: "center",marginBottom:20, flexDirection: "row", justifyContent: "center" }}>
+                    <Text style={{ marginRight: 5, color: "#6B7280" }}>You have an already Account?</Text>
+                    <TouchableOpacity onPress={() => navigation.navigate("LogIn")}><Text style={{ color: colors.primary, textDecorationLine: 'underline', fontSize: 15 }}>Log In</Text></TouchableOpacity>
+
                 </View>
             </ScrollView>
         </View>
@@ -126,10 +143,16 @@ const styles = StyleSheet.create({
         margin: 18,
         // display:"flex"
         position: "relative",
+    }, 
+    searchicon: {
+        fontSize: 20,
+        color: colors.primary,
+        margin:18
     },
+
     inputView: {
         backgroundColor: "#F1F3F3",
-        borderRadius: 30,
+        // borderRadius: 30,
         width: "90%",
         height: 45,
         marginBottom: 20,

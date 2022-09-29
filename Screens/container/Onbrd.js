@@ -10,7 +10,7 @@ export default function Onbrd({navigation}) {
 
     const Dot = ({ isLight, selected }) => {
         let backgroundColor;
-        if (isLight) {
+        if (isLight) {  
           backgroundColor = selected ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.3)';
         } else {
           backgroundColor = selected ? '#fff' : 'rgba(255, 255, 255, 0.5)';
@@ -21,10 +21,8 @@ export default function Onbrd({navigation}) {
               height: 6,
               marginHorizontal: 3,
               backgroundColor,
+              borderRadius:10
             }}
-
-            
-
           />
           
         );
@@ -34,7 +32,7 @@ export default function Onbrd({navigation}) {
       const Done = ({ isLight, ...props }) => (
         <Button
           title={'Done'}
-          color={"blue"}
+          color={"#106733"}
           {...props}
         />
       );
@@ -42,7 +40,7 @@ export default function Onbrd({navigation}) {
       const Skip = ({ isLight, skipLabel, ...props }) => (
         <Button
           title={'Skip'}
-          color={""}
+          color={"#6B7280"}
           {...props}
         >
           {skipLabel}
@@ -52,7 +50,7 @@ export default function Onbrd({navigation}) {
       const Next = ({ isLight, ...props }) => (
         <Button
           title={'Next'}
-          color={"#32B768"}
+          color={'#106733'}
           {...props}
         />
       );
@@ -64,31 +62,34 @@ export default function Onbrd({navigation}) {
     NextButtonComponent={Next}
     SkipButtonComponent={Skip}
     DoneButtonComponent={Done}
-    titleStyles={{ color: '#32B768' }} 
+    bottomBarColor="#F4F6F7"
+    titleStyles={{ color: '#106733' }} 
     subTitleStyles={{color:"#6B7280"}}
 
-    onSkip={() => navigation.navigate("Home")}
-    onDone={() => navigation.navigate("PizzaD")}
+    onSkip={() => navigation.navigate("LogIn")}
+    onDone={() => navigation.navigate("LogIn")}
 
     pages={[
       {
-        backgroundColor: '#fff',
+        backgroundColor: '#F4F6F7',
         image: <Image source={require('../../assets/image/order.png')} style={{height:300,width:300}}/>,
         title: 'Order Your Food Now',
         subtitle: 'Explore Different variety of Foods best for You.',
-        titleStyles: { color: 'red' }, 
+         
       },
       {
-        backgroundColor: '#fff',
+        backgroundColor: '#F4F6F7',
         image: <Image source={require('../../assets/image/chef.png')} style={{height:300,width:300}} />,
         title: 'Carefully Prepare',
         subtitle: 'Our Chef Carefully make a Delicious Food.',
+        
       },
       {
-        backgroundColor: '#fff',
+        backgroundColor: '#F4F6F7',
         image: <Image source={require('../../assets/image/delivery.png')} style={{height:300,width:300}}/>,
         title: 'Get Fast Delivery',
         subtitle: "Fast Delivery with in few minutes of ordering. ",
+        
       },
     ]}
   />

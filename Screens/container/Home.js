@@ -278,8 +278,8 @@ export default function Home({ navigation }) {
                           <View style={{ marginBottom: 10 }}>
                             <View style={{ flexDirection: "row" }}>
                               <View style={{ width: "90%", flexDirection: "row", justifyContent: "space-between", top: 8, marginRight: 10 }}>
-                                <Text>Small (serves 1, 17.7 cm)</Text>
-                                <Text >Rs. 255</Text>
+                                <Text style={{color:colors.secondarytext}}>Small (serves 1, 17.7 cm)</Text>
+                                <Text style={{color:colors.secondarytext}}>Rs. 255</Text>
 
                               </View>
                               <RadioButton
@@ -292,8 +292,8 @@ export default function Home({ navigation }) {
                             </View>
                             <View style={{ flexDirection: "row" }}>
                               <View style={{ width: "90%", flexDirection: "row", justifyContent: "space-between", top: 8, marginRight: 10 }}>
-                                <Text>Regular (serves 2, 24.5 cm)</Text>
-                                <Text >Rs. 255</Text>
+                                <Text style={{color:colors.secondarytext}}>Regular (serves 2, 24.5 cm)</Text>
+                                <Text style={{color:colors.secondarytext}}>Rs. 255</Text>
                               </View>
                               <RadioButton
                                 value="second"
@@ -304,8 +304,8 @@ export default function Home({ navigation }) {
                             </View>
                             <View style={{ flexDirection: "row" }}>
                               <View style={{ width: "90%", flexDirection: "row", justifyContent: "space-between", top: 8, marginRight: 10 }}>
-                                <Text>Large (serves 3, 33 cm)</Text>
-                                <Text >Rs. 255</Text>
+                                <Text style={{color:colors.secondarytext}}>Large (serves 3, 33 cm)</Text>
+                                <Text style={{color:colors.secondarytext}}>Rs. 255</Text>
                               </View>
                               <RadioButton
                                 value="third"
@@ -612,8 +612,8 @@ let styles = StyleSheet.create({
 
   },
   imgOfmenuFood: {
-    height: 100,
-    width: 100,
+    height: 110,
+    width: 108,
     borderRadius: 80,
     marginBottom: 10,
     // marginTop: 10,
@@ -629,7 +629,7 @@ let styles = StyleSheet.create({
     position: "relative",
     // marginLeft:10,
     height: 160,
-    width: 100,
+    width: 108,
     paddingTop: 10,
     paddingRight: 10,
     paddingLeft: 10,
